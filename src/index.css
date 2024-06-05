@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 1.6vw;
+}
+
+#text-shadow {
+  text-shadow: 0 0 0.8rem orangered, 0 0 2.4rem yellow,
+    0 0 4rem rgba(255, 255, 0, 0.223);
+}
+
+.ruby {
+  clip-path: polygon(0 0, 60% 0, 100% 30%, 100% 100%, 30% 100%, 0 60%);
+  filter: drop-shadow(0 0 10% #fff);
+}
+
+#fade_puzz {
+  overflow: hidden;
+  position: relative;
+  clip-path: polygon(0 0, 60% 0, 100% 30%, 100% 100%, 30% 100%, 0 60%);
+}
+
+#fade_puzz::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  background: transparent;
+  width: 0;
+  height: 90%;
+  border-radius: 50%;
+  opacity: 1;
+  z-index: 40;
+  box-shadow: 0 0 14px 2px #fff, inset 0 0 2px #fff, 0 0 10px 1px #ffa800,
+    inset 0 0 1px #ffa800, 0 0 30px 1px #ffa800, inset 0 0 1px #ffa800;
+  opacity: 0.7;
+  animation: move_trailer 2s linear infinite;
+}
+
+@keyframes move_trailer {
+  0% {
+    transform: skewX(-30deg) translateX(0);
+  }
+
+  50% {
+    transform: skewX(-30deg) translate(80px, 20px);
+  }
+  100% {
+    transform: skewX(-30deg) translateX(0);
+  }
+}
